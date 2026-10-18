@@ -1,69 +1,44 @@
 <?php
 include("../Assets/Connection/Connection.php");
 
-
 include("Header.php");
-$selqry="select * from tbl_student where student_id='".$_SESSION['sid']."'";
-$row=$Con->query($selqry);
-$data=$row->fetch_assoc();
-$pass=$data['student_password'];
-if(isset($_POST['btn_cpassword']))
-{
-	$old=$_POST['txt_opassword'];
-    $new=$_POST['txt_npassword'];
-	$rpass=$_POST['txt_rpassword'];
-	if($pass==$old)
-	{
-	    if($new==$rpass)
-		{
-		   $upQry="update tbl_student set student_password='".$new."' where student_id='".$_SESSION['sid']."'";
-		   if($Con->query($upQry))
-		   {
-			   ?>
+
+$selqry = "select * from tbl_warden where warden_id='" . $_SESSION['wid'] . "'";
+$row = $Con->query($selqry);
+$data = $row->fetch_assoc();
+$pass = $data['warden_passwd'];
+
+if (isset($_POST['btn_cpassword'])) {
+    $old = $_POST['txt_opassword'];
+    $new = $_POST['txt_npassword'];
+    $rpass = $_POST['txt_rpassword'];
+
+    if ($pass == $old) {
+        if ($new == $rpass) {
+            $upQry = "update tbl_warden set warden_passwd='" . $new . "' where warden_id='" . $_SESSION['wid'] . "'";
+            if ($Con->query($upQry)) {
+?>
                 <script>
-			     alert("password changed");
-			      window.location="../Guest/Login.php";
-			       </script>
-                  <?php
-				  } 
-				  }
-		 else
-			{
-			 ?>
-				<script>
-		         alert("Password Mismatched");
-		          </script>
-                   <?php
-                      }
-					  }
-else
-	{
-		?>
-		<script>
-	    alert("invalid password")
-        </script>
-	    <?php
-             }
-		 }
-	    ?>
+                    alert("Password changed");
+                    window.location = "../Guest/Login.php";
+                </script>
+<?php
+            }
+        } else {
+            echo "<script>alert('New and Re-Type password do not match');</script>";
+        }
+    } else {
+        echo "<script>alert('Invalid current password');</script>";
+    }
+}
+?>
 
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<style type="text/css">
+<meta charset="utf-8" />
+<title>Change Password</title>
+<style>
   body {
     margin: 0;
     padding: 0;
@@ -75,19 +50,25 @@ else
   form {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 50px 0;
+    padding: 80px 0;
   }
 
   table {
-    width: 500px;
+    width: 450px;
     background-color: #fff;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border-collapse: collapse;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     padding: 20px;
-    border-collapse: separate;
-    border-spacing: 0 15px;
+  }
+
+  th {
+    text-align: center;
+    padding: 15px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 12px 12px 0 0;
   }
 
   td {
@@ -95,57 +76,76 @@ else
     font-size: 15px;
   }
 
-  td[colspan="2"] {
-    text-align: center;
+  input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
   }
 
-  img {
-    display: block;
-    margin: 20px auto;
-    border-radius: 10px;
-    border: 3px solid #2980b9;
-    max-height: 150px;
+  input[type="submit"], input[type="reset"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s;
   }
-   a:hover {
-    background-color: #1f618d;
+
+  input[type="submit"] {
+    background-color: #3498db;
   }
+
+  input[type="submit"]:hover {
+    background-color: #2980b9;
+  }
+
+  input[type="reset"] {
+    background-color: #e74c3c;
+  }
+
+  input[type="reset"]:hover {
+    background-color: #c0392b;
+  }
+
 </style>
 </head>
 
-
 <body>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
 <form id="form1" name="form1" method="post" action="">
-  <table width="242" height="193" border="1">
+  <table border="0">
     <tr>
-      <td width="92">Old password</td>
-      <td width="112"><label for="txt_opassword"></label>
-      <input type="text" name="txt_opassword" id="txt_opassword"  value="<?php echo $data['student_password'] ?>"/></td>
+      <th colspan="2">Change Password</th>
+    </tr>
+    <tr>
+      <td>Old Password</td>
+      <td><input type="password" name="txt_opassword" id="txt_opassword" required  value="<?php echo $data['warden_passwd'] ?>"/></td>
+    </tr>
     <tr>
       <td>New Password</td>
-      <td><label for="txt_npassword"></label>
-      <input type="text" name="txt_npassword" id="txt_npassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/></td>
+      <td><input type="password" name="txt_npassword" id="txt_npassword" required /></td>
     </tr>
     <tr>
       <td>Re-Type Password</td>
-      <td><label for="txt_rpassword"></label>
-      <input type="text" name="txt_rpassword" id="txt_rpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/></td>
+      <td><input type="password" name="txt_rpassword" id="txt_rpassword" required /></td>
     </tr>
     <tr>
-      <td colspan="2"> <input type="submit" name="btn_cpassword" id="btn_cpassword"  value="change Password" />
-      <input type="submit" name="btn_cancel" id="btn_cancel" value="Cancel" /></td>
+      <td colspan="2" align="center">
+        <input type="submit" name="btn_cpassword" id="btn_cpassword" value="Change Password" />
+        <input type="reset" name="btn_cancel" id="btn_cancel" value="Cancel" />
+      </td>
     </tr>
   </table>
 </form>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+
 </body>
 </html>
 
 <?php
 include("Footer.php");
 ?>
+

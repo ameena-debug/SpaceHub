@@ -1,81 +1,30 @@
 </div>
-  <footer class="site-footer">
-      <!-- <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="mb-5">
-              <h3 class="footer-heading mb-4">About Apart</h3>
-              <p>This is great college</p>
-            </div>
-            <div class="mb-5">
-              <h3 class="footer-heading mb-4">Subscribe</h3>
-              <form action="#" method="post" class="site-block-subscribe">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control border-secondary bg-transparent" placeholder="Enter your email"
-                    aria-label="Enter Email" aria-describedby="button-addon2">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary rounded-top-right-0" type="button" id="button-addon2">Subscribe</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <div class="row mb-5">
-              <div class="col-md-12">
-                <h3 class="footer-heading mb-4">Navigations</h3>
-              </div>
-              <div class="col-md-6 col-lg-6">
-                <ul class="list-unstyled">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Apartments</a></li>
-                  <li><a href="#">News</a></li>
-                  <li><a href="#">Featured Apartment</a></li>
-                </ul>
-              </div>
-              <div class="col-md-6 col-lg-6">
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Membership</a></li>
-                </ul>
-              </div>
-            </div>
+<style>
+/* Footer styling */
+.site-footer {
+    background-color: #000; /* black background */
+    color: #fff; /* white text */
+    padding: 40px 0;
+}
 
-            <div class="row">
-              <div class="col-md-12">
-                <h3 class="footer-heading mb-4">Follow Us</h3>
+.site-footer a {
+    color: #fff; /* white links */
+    text-decoration: none;
+}
 
-                <div>
-                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-                </div>
-              </div>
-            </div>
+.site-footer a:hover {
+    color: #3498db; /* optional hover color */
+}
 
-          </div>
+.site-footer p {
+    margin: 0;
+}
+</style>
+ 
 
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <div class="mb-5">
-              <h3 class="footer-heading mb-4">Watch Live Streaming</h3>
-
-              <div class="block-16">
-                <figure>
-                  <img src="../Assets/Template/Main/images/img_1.jpg" alt="Image placeholder" class="img-fluid rounded">
-                  <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"><span class="icon-play"></span></a>
-                </figure>
-              </div>
-
-            </div>
-
-            
-
-          </div>
-          
-        </div> -->
+    <footer class="site-footer">
+      <div class="container" class="site-footer">
+        
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
             <p>
@@ -86,10 +35,10 @@
           </div>
           
         </div>
-      <!-- </div> -->
+      </div>
     </footer>
 
-  <!-- </div> -->
+  </div>
 
   <script src="../Assets/Template/Main/js/jquery-3.3.1.min.js"></script>
   <script src="../Assets/Template/Main/js/jquery-migrate-3.0.1.min.js"></script>

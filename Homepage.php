@@ -1,5 +1,10 @@
 <?php
+include("../Assets/Connection/Connection.php");
+
 include('SessionValidation.php');
+
+
+
 
 
 ?>
@@ -8,7 +13,7 @@ include('SessionValidation.php');
 <html lang="en">
 
 <head>
-  <title>SpaceHub</title>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -30,7 +35,7 @@ include('SessionValidation.php');
   <link rel="stylesheet" href="../Assets/Template/Main/css/aos.css">
 
   <link rel="stylesheet" href="../Assets/Template/Main/css/style.css">
-
+  <title>SpaceHub</title>
 </head>
 
 <body>
@@ -44,7 +49,7 @@ include('SessionValidation.php');
       <div class="container py-1">
         <div class="row align-items-center">
           <div class="col-8 col-md-8 col-lg-4">
-                         <h1 class="mb-0"><a href="index.html" class="text-white h2 mb-0"><strong>SpaceHub</strong></a></h1>
+              <h1 class="mb-0"><a href="index.html" class="text-white h2 mb-0"><strong>SpaceHub</strong></a></h1>
 
           </div>
           <div class="col-4 col-md-4 col-lg-8">
@@ -55,16 +60,22 @@ include('SessionValidation.php');
 
               <ul class="site-menu js-clone-nav d-none d-lg-block">
                 <li class="active">
-                  <a href="index.php">Home</a>
+                  <a href="Homepage.php">Home</a>
                 </li>
-                <li><a href="Myprofile.php">Myprofile</a></li>
-                <li><a href="Leave.php">Apply for leave</a></li>
-               
-                <li><a href="Complaint.php">Register complain</a></li>
-                <li><a href="Feedback.php">Feedback</a></li>
-                <li><a href="MyRent.php">My Rent</a></li>
-                <li><a href="ViewTimetable.php">View Timetable</a></li>
+
+
+                
+                 <li><a href="Myprofile.php">My Profile</a></li>
+                
+
+                <li><a href="timetable.php"> Upload FoodTimetable</a></li>
+                <li><a href="StudentList.php">Student list</a></li>
+                <li><a href="ViewComplaint.php">View Complaints</a></li>
+                <li><a href="Studentpayment.php">Student payment</a></li>
                 <li><a href="../Guest/Logout.php">Logout</a></li>
+
+
+
               </ul>
             </nav>
           </div>
@@ -228,7 +239,7 @@ include('SessionValidation.php');
             </div>
             <div class="unit-9-content">
               <h2>Rooms</h2>
-              <span>4students per roomt</span>
+              <span>4 students per roomt</span>
             </div>
           </a>
 
@@ -238,8 +249,6 @@ include('SessionValidation.php');
 
     </div>
   </div>
-
-
 
 
   <div class="site-section block-13">
@@ -306,7 +315,13 @@ include('SessionValidation.php');
       </div>
     </div>
   </div>
-  <div id="#gallery" class="site-section bg-light">
+
+
+
+
+
+
+ <div id="#gallery" class="site-section bg-light">
     <div class="container">
       <div class="row">
         <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto" data-aos="fade-up">
@@ -331,7 +346,7 @@ include('SessionValidation.php');
               class="img-fluid"></a>
           <div class="p-4 bg-white">
             <span class="d-block text-secondary small text-uppercase">Principal</span>
-            <h2 class="h5 text-black mb-3"><a href="single.html">Dr.Harikanth S
+            <h2 class="h5 text-black mb-3"><a href="single.html">Dr. Harikanth S
 
               </a></h2>
 
@@ -339,7 +354,7 @@ include('SessionValidation.php');
         </div>
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
           <a href="single.html"><img
-              src="..\Assets\Files\index\AO.jpg" alt="Image"
+              src="../Assets\Files\index\AO.jpg" alt="Image"
               class="img-fluid"></a>
           <div class="p-4 bg-white">
             <span class="d-block text-secondary small text-uppercase">Administrative Officer</span>
@@ -352,110 +367,118 @@ include('SessionValidation.php');
   </div>
 
 
-  <div class="bg-primary" data-aos="fade">
-    <div class="container">
-      <div class="row">
-        <a href="#" class="col-2 text-center py-4 social-icon d-block"><span
-            class="icon-facebook text-white"></span></a>
-        <a href="#" class="col-2 text-center py-4 social-icon d-block"><span class="icon-twitter text-white"></span></a>
-        <a href="#" class="col-2 text-center py-4 social-icon d-block"><span
-            class="icon-instagram text-white"></span></a>
-        <a href="#" class="col-2 text-center py-4 social-icon d-block"><span
-            class="icon-linkedin text-white"></span></a>
-        <a href="#" class="col-2 text-center py-4 social-icon d-block"><span
-            class="icon-pinterest text-white"></span></a>
-        <a href="#" class="col-2 text-center py-4 social-icon d-block"><span class="icon-youtube text-white"></span></a>
-      </div>
-    </div>
-  </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="mb-5">
-            <h3 class="footer-heading mb-4">About Us</h3>
-            <p>This is great college</p>
+        <div class="bg-primary" data-aos="fade">
+          <div class="container">
+            <div class="row">
+              <a href="#" class="col-2 text-center py-4 social-icon d-block"><span
+                  class="icon-facebook text-white"></span></a>
+              <a href="#" class="col-2 text-center py-4 social-icon d-block"><span
+                  class="icon-twitter text-white"></span></a>
+              <a href="#" class="col-2 text-center py-4 social-icon d-block"><span
+                  class="icon-instagram text-white"></span></a>
+              <a href="#" class="col-2 text-center py-4 social-icon d-block"><span
+                  class="icon-linkedin text-white"></span></a>
+              <a href="#" class="col-2 text-center py-4 social-icon d-block"><span
+                  class="icon-pinterest text-white"></span></a>
+              <a href="#" class="col-2 text-center py-4 social-icon d-block"><span
+                  class="icon-youtube text-white"></span></a>
+            </div>
           </div>
-          <div class="mb-5">
-            <h3 class="footer-heading mb-4">For regular updates enter your email id</h3>
-            <form action="#" method="post" class="site-block-subscribe">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control border-secondary bg-transparent" placeholder="Enter your email"
-                  aria-label="Enter Email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary rounded-top-right-0" type="button" id="button-addon2">Email</button>
+        </div>
+
+        <footer class="site-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="mb-5">
+                  <h3 class="footer-heading mb-4">About Us</h3>
+                  <p>This is great college</p>
+                </div>
+                <div class="mb-5">
+                  <h3 class="footer-heading mb-4">For regular updates enter your email id</h3>
+                  <form action="#" method="post" class="site-block-subscribe">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control border-secondary bg-transparent"
+                        placeholder="Enter your email" aria-label="Enter Email" aria-describedby="button-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-primary rounded-top-right-0" type="button"
+                          id="button-addon2">Email</button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-10 mb-lg-0">
-          <div class="row mb-5">
-            <div class="col-md-12">
-              <h3 class="footer-heading mb-10">             Quick Links</h3>
-            </div>
-            <div class="col-md-106 col-lg-106">
-              <ul class="list-unstyled">
-                <li><a href="#">                                    Home</a></li>
-               
-                <li><a href="../Guest/Student.php">         New Registration</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-              </ul>
-              <div class="col-md-106 col-lg-106">
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="../Assets/Files/Rules/HostelRules.pdf">Rules and regulations</a></li>
-                  
-                </ul>
+              <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="row mb-5">
+                  <div class="col-md-12">
+                    <h3 class="footer-heading mb-4">Quick Links</h3>
+                  </div>
+                  <div class="col-md-106 col-lg-106">
+                    <ul class="list-unstyled">
+                      <li><a href="#">Home</a></li>
+                      
+                      <li><a href="../Guest/Student.php">NewRegistration</a></li>
+                      <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <ul class="list-unstyled">
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="../Assets/Files/Rules/HostelRules.pdf"> Rules and regulations</a></li>
+                      
+
+                    </ul>
+                  </div>
+                </div>
+
+                
+                </div>
+
               </div>
+
+
+
+
+
             </div>
 
-            
+          </div>
+          <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+              <p>
+                <!-- Link back to SpaceHub can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script data-cfasync="false"
+                  src="../Assets/Template/Main//cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+                with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="#"
+                  target="_blank">SpaceHub</a>
+                <!-- Link back to SpaceHub can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>
+            </div>
 
           </div>
-
-
-
-
-        </div>
-
       </div>
-      <div class="row pt-5 mt-5 text-center">
-        <div class="col-md-12">
-          <p>
-            <!-- Link back to SpaceHub can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;
-            <script data-cfasync="false"
-              src="../Assets/Template/Main//cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
-            <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="#"
-              target="_blank">SpaceHub</a>
-            <!-- Link back to SpaceHub can't be removed. Template is licensed under CC BY 3.0. -->
-          </p>
-        </div>
+      </footer>
 
-      </div>
     </div>
-  </footer>
 
-  </div>
+    <script src="../Assets/Template/Main/js/jquery-3.3.1.min.js"></script>
+    <script src="../Assets/Template/Main/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../Assets/Template/Main/js/popper.min.js"></script>
+    <script src="../Assets/Template/Main/js/jquery-ui.js"></script>
+    <script src="../Assets/Template/Main/js/bootstrap.min.js"></script>
+    <script src="../Assets/Template/Main/js/owl.carousel.min.js"></script>
+    <script src="../Assets/Template/Main/js/mediaelement-and-player.min.js"></script>
+    <script src="../Assets/Template/Main/js/jquery.stellar.min.js"></script>
+    <script src="../Assets/Template/Main/js/jquery.countdown.min.js"></script>
+    <script src="../Assets/Template/Main/js/jquery.magnific-popup.min.js"></script>
+    <script src="../Assets/Template/Main/js/bootstrap-datepicker.min.js"></script>
+    <script src="../Assets/Template/Main/js/aos.js"></script>
+    <script src="../Assets/Template/Main/js/circleaudioplayer.js"></script>
 
-  <script src="../Assets/Template/Main/js/jquery-3.3.1.min.js"></script>
-  <script src="../Assets/Template/Main/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../Assets/Template/Main/js/popper.min.js"></script>
-  <script src="../Assets/Template/Main/js/jquery-ui.js"></script>
-  <script src="../Assets/Template/Main/js/bootstrap.min.js"></script>
-  <script src="../Assets/Template/Main/js/owl.carousel.min.js"></script>
-  <script src="../Assets/Template/Main/js/mediaelement-and-player.min.js"></script>
-  <script src="../Assets/Template/Main/js/jquery.stellar.min.js"></script>
-  <script src="../Assets/Template/Main/js/jquery.countdown.min.js"></script>
-  <script src="../Assets/Template/Main/js/jquery.magnific-popup.min.js"></script>
-  <script src="../Assets/Template/Main/js/bootstrap-datepicker.min.js"></script>
-  <script src="../Assets/Template/Main/js/aos.js"></script>
-  <script src="../Assets/Template/Main/js/circleaudioplayer.js"></script>
-
-  <script src="../Assets/Template/Main/js/main.js"></script>
+    <script src="../Assets/Template/Main/js/main.js"></script>
 
 </body>
 

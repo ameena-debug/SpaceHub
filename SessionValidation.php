@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['sid'] == "")
+if($_SESSION['wid'] == "")
 {
     header('location:../Guest/Login.php');
 }
